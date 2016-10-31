@@ -5,8 +5,14 @@ export default Ember.Route.extend({
     return this.store.findRecord('category', params.category_id);
   },
   actions: {
-    addListing() {
-      //add stuff here
+    addListing(params) {
+      var newListing = this.store.createRecord('listing', params);
+      var category = params.category;
+      category.get('listings').addObject(newListing);
+      newListing.save().then(function(){
+        return category.save();
+      });
+      // this.transitionTo('question', question);
     }
   }
 });
