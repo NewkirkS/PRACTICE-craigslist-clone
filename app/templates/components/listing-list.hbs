@@ -2,7 +2,7 @@
   {{#each category.listings as |listing|}}
     <div class="col-sm-6">
       {{#link-to 'listing' listing.id}}
-        <h4>{{listing.title}} for $ {{listing.price}}</h4>
+        <h4>{{listing.title}} for {{housing-cost listing}}</h4>
         <img src="{{listing.image}}" alt="image of stuff">
       {{/link-to}}
     </div>
