@@ -1,3 +1,10 @@
 <h1>{{model.category.name}}</h1>
-<button {{action 'destroyListing' model}} class="btn btn-danger">Delete Listing</button>
+<div class="row">
+  <div class="col-sm-2">
+    <button {{action 'destroyListing' model}} class="btn btn-danger">Delete Listing</button>
+  </div>
+  <div class="col-sm-2">
+    {{update-listing listing=model updateListing="updateListing"}}
+  </div>
+</div>
 {{listing-detail listing=model}}
